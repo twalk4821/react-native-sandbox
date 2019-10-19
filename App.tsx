@@ -4,6 +4,7 @@ import {
   StyleSheet,
   StatusBar,
   Text,
+  View,
   Button,
   ScrollView
 } from 'react-native';
@@ -57,6 +58,12 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <Text style={styles.title}>Components</Text>
+        { components.length == 0 &&
+        <View>
+          <Text>No Components!</Text>
+          <Text>Use the generate command to make one!</Text>
+        </View>
+        }
         <ScrollView>
           { components.map((c) =>
             <Button title={c.name} onPress={e => selectComponent(c)} key={c.name} />
